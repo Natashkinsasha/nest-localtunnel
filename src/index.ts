@@ -4,7 +4,7 @@ import {ModuleRef} from "@nestjs/core";
 
 
 @Module({})
-export default class TunnelModel {
+export class TunnelModel {
 
     public static forRoot(port: number, opt?: localtunnel.TunnelConfig): DynamicModule {
         const providers = [
