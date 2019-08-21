@@ -13,6 +13,14 @@
     "nest",
     "localtunnel"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Natashkinsasha/nest-localtunnel.git"
+  },
+  "bugs": {
+    "url": "git://github.com/Natashkinsasha/nest-localtunnel.git/issues",
+    "email": "natashkinsasga@gmail.com"
+  },
   "dependencies": {
     "@nestjs/common": "^6.5.3",
     "@nestjs/core": "^6.5.3",
