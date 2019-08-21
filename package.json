@@ -1,0 +1,27 @@
+{
+  "name": "nest-localtunnel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "build": "rimraf build && tsc -p tsconfig.build.json"
+  },
+  "author": "Alex Natashkin <natashkinsasha@gmail.com>",
+  "license": "ISC",
+  "keywords": [
+    "nest",
+    "localtunnel"
+  ],
+  "dependencies": {
+    "@nestjs/common": "^6.5.3",
+    "@nestjs/core": "^6.5.3",
+    "localtunnel": "^1.9.2",
+    "rxjs": "^6.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.2",
+    "rimraf": "^3.0.0",
+    "typescript": "^3.5.3"
+  }
+}
