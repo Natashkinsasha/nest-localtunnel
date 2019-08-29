@@ -22,16 +22,17 @@ export class TunnelModel {
         }
     }
 
-    public static forRootAsync({useFactory, inject, imports}: { useFactory: (...args: any[]) => Promise<{ port: number, opt?: localtunnel.TunnelConfig }> | { port: number, opt?: localtunnel.TunnelConfig }, inject?: Array<Type<any> | string | symbol>, imports?: Array<Type<any> | DynamicModule | Promise<DynamicModule> | ForwardReference>; }): DynamicModule {
+    public static forRootAsync({useFactory, inject, imports}: { useFactory: (...args: any[]) => Promise<{ port: number, opt?: localtunnel.TunnelConfig } | void>, inject?: Array<Type<any> | string | symbol>, imports?: Array<Type<any> | DynamicModule | Promise<DynamicModule> | ForwardReference>; }): DynamicModule {
         const providers = [
             {
                 provide: 'Tunnel',
                 useFactory: async (ref: ModuleRef, ...inject: Array<Type<any> | string | symbol>) => {
-                    return Promise
-                        .resolve()
-                        .then(() => useFactory(...inject))
-                        .then(({port, opt}) => {
-                            return this.init(port, opt);
+                    return useFactory(...inject)
+                        .then((answer) => {
+                            if(answer){
+                                return this.init(answer.port, answer.opt);
+                            }
+                            return;
                         })
                 },
                 inject: [ModuleRef, ...(inject || [])]
